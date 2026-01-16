@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import CallBookButton from "@/components/CallBookButton";
 import SecondaryButton from "@/components/SecondaryButton";
 import PrimaryButton from "@/components/PrimaryButton";
 
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     // Initialize smooth scroll with Lenis
     const lenis = new Lenis({
@@ -24,6 +25,25 @@ export default function Home() {
     }
 
     const animationFrameId = requestAnimationFrame(raf);
+
+    // Subtle blurred fade-in animation for hero section
+    if (heroRef.current) {
+      import("gsap").then((gsapModule) => {
+        const gsap = gsapModule.default;
+        gsap.fromTo(
+          heroRef.current,
+          { opacity: 0, filter: "blur(32px)", y: 64 },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            y: 0,
+            duration: 1.85,
+            ease: "power3.out",
+            delay: 0.25,
+          }
+        );
+      });
+    }
 
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
@@ -71,7 +91,10 @@ export default function Home() {
         </nav>
 
         {/* Hero */}
-        <section className="flex flex-col items-center text-center mt-10 sm:mt-16 mb-24">
+        <section
+          ref={heroRef}
+          className="flex flex-col items-center text-center mt-10 sm:mt-16 mb-24"
+        >
           {/* Badge */}
           <div className="flex items-center gap-3 mb-6">
             <div className="flex -space-x-2">
