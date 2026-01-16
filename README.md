@@ -1,36 +1,249 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Call Book Button - Next.js Animation Task
 
-## Getting Started
+A production-ready interactive button component showcase built with **Next.js 16**, **Tailwind CSS 4**, **GSAP**, and **Lenis**.
 
-First, run the development server:
+## 🚀 Features
+
+### CallBookButton Component
+
+- **Three Interactive States**: Default, Hover, and Clicked
+- **Smooth Animations**: GSAP-powered transitions for all state changes
+- **Icon Morphing**: Dynamic arrow transitions (↗ to →)
+- **Gradient Backgrounds**: Vibrant blue gradients with smooth color shifts
+- **Elevation Effects**: 3D-like lifting on hover, pressing on click
+- **Shadow Effects**: Glow on hover, inner shadow on click
+- **Fully Responsive**: Pixel-perfect on desktop, tablet, and mobile
+- **Accessible**: Keyboard focus states, proper ARIA labels
+
+### Design Details
+
+#### Default State
+
+- White/light grey background
+- Light grey border (1px)
+- Black text and icon (↗)
+- Subtle shadow
+- No elevation
+
+#### Hover State
+
+- Vibrant blue gradient (135deg: #3b82f6 → #2563eb)
+- White text and icon (→)
+- Soft blue glow shadow
+- Lifted appearance (-2px translateY)
+- Smooth color transition on icon
+
+#### Clicked State
+
+- Darker blue gradient (135deg: #1d4ed8 → #1e40af)
+- White text and icon (→)
+- Inner shadow effect for pressed appearance
+- Scale down to 0.98
+- Tight, dark shadow
+
+## 🛠️ Tech Stack
+
+- **Next.js 16.1.2** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS 4** - Utility-first styling
+- **GSAP 3.14** - Animation library
+- **Lenis** - Smooth scrolling library
+- **ESLint** - Code quality
+
+## 📋 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (recommended 20+)
+- npm, yarn, pnpm, or bun
+
+### Installation
 
 ```bash
+# Clone or navigate to project
+cd /home/yeaish/nextjs
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the button demo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── page.tsx           # Main demo page with button showcase
+│   ├── layout.tsx         # Root layout with metadata
+│   └── globals.css        # Global styles and animations
+├── components/
+│   ├── CallBookButton.tsx # Main button component
+│   ├── PrimaryButton.tsx  # Primary button variant (optional)
+│   ├── SecondaryButton.tsx # Secondary button variant (optional)
+│   └── Button3D.tsx       # 3D button component (optional)
+└── [config files]
+```
 
-## Learn More
+## 🎯 Component Usage
 
-To learn more about Next.js, take a look at the following resources:
+### Basic Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```tsx
+import CallBookButton from "@/components/CallBookButton";
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+export default function Example() {
+  const handleClick = () => {
+    console.log("Call booking initiated!");
+  };
 
-## Deploy on Vercel
+  return <CallBookButton onClick={handleClick} />;
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### With Variant Display
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+// Show specific state without interactivity
+<CallBookButton variant="hover" />
+<CallBookButton variant="clicked" />
+<CallBookButton variant="default" />
+```
+
+### Props
+
+| Prop      | Type                                | Default     | Description                       |
+| --------- | ----------------------------------- | ----------- | --------------------------------- |
+| `onClick` | `() => void`                        | -           | Callback function on button click |
+| `variant` | `'default' \| 'hover' \| 'clicked'` | `'default'` | Force a specific visual state     |
+
+## 📱 Responsive Behavior
+
+The button automatically adapts to all screen sizes:
+
+- **Mobile** (< 640px): Compact padding, touch-friendly
+- **Tablet** (640px - 1024px): Standard sizing
+- **Desktop** (> 1024px): Full-size button with optimal spacing
+
+## 🎨 Customization
+
+### Changing Colors
+
+Edit the color values in `CallBookButton.tsx`:
+
+```tsx
+// Default state
+backgroundColor: '#ffffff',
+color: '#000000',
+
+// Hover state
+background: 'linear-gradient(135deg, #YOUR_COLOR_1 0%, #YOUR_COLOR_2 100%)',
+
+// Clicked state
+background: 'linear-gradient(135deg, #YOUR_DARK_COLOR_1 0%, #YOUR_DARK_COLOR_2 100%)',
+```
+
+### Adjusting Animation Timing
+
+Modify the GSAP `duration` values:
+
+```tsx
+gsap.to(button, {
+  duration: 0.5, // Change animation speed (default 0.3s)
+  // ...
+});
+```
+
+### Changing Button Text
+
+Pass custom text via children (if implemented) or modify the hardcoded text:
+
+```tsx
+// In component
+<span ref={textRef} className="font-medium">
+  Your Custom Text
+</span>
+```
+
+## 🚀 Production Build
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## 📊 Performance
+
+- Zero external image assets
+- Optimized GSAP animations (using raf)
+- Minimal CSS (Tailwind CSS 4 with purging)
+- Touch-friendly event handling
+- No layout shift on state change
+
+## 🐛 Debugging
+
+### Dev Tools
+
+```bash
+# Run with Turbopack (faster dev server)
+npm run dev
+
+# Build and check for errors
+npm run build
+
+# Lint code
+npm run lint
+```
+
+### Common Issues
+
+**Button not animating?**
+
+- Ensure GSAP is installed: `npm install gsap`
+- Check browser console for errors
+
+**Styling not applying?**
+
+- Verify Tailwind CSS 4 is installed
+- Run `npm install` to ensure all dependencies
+
+**Smooth scroll not working?**
+
+- Verify Lenis is installed: `npm install lenis`
+- Check for JavaScript errors in console
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [GSAP Documentation](https://gsap.com/docs)
+- [Lenis Documentation](https://lenis.studiofreight.com/)
+
+## 📝 Notes for Developers
+
+- Component uses `'use client'` directive (Client Component) for interactivity
+- All animations are GPU-accelerated for smooth performance
+- Button maintains focus state for keyboard accessibility
+- Touch events are handled for mobile devices
+
+## 🎯 Next Steps
+
+1. **Customize Colors**: Update gradient colors to match your brand
+2. **Add More Variants**: Create `PrimaryButton` and `SecondaryButton` components
+3. **Integrate CTA**: Connect button click to your booking system
+4. **Deploy**: Push to Vercel or your hosting platform
+
+## 📄 License
+
+This project is provided as-is for evaluation and development purposes.
+
+---
+
+**Questions or Issues?** Check the browser console for errors and verify all dependencies are installed correctly.

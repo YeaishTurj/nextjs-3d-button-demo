@@ -32,20 +32,12 @@ export default function Home() {
     console.log("Call booking initiated!");
   };
 
-  // Shared gradient style to keep the JSX clean
-  const gradientTextStyle = {
-    background: "linear-gradient(145deg, #000000 30.66%, #0775DB 77.39%)",
-    backgroundClip: "text",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  };
-
   return (
-    <main className="relative min-h-screen bg-white pt-6 sm:pt-10">
+    <main className="relative min-h-screen bg-white">
       {/* Subtle background wash */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-14 lg:px-18">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navbar */}
         <nav className="flex items-center justify-between py-6">
           <div className="flex items-center gap-3">
@@ -71,7 +63,7 @@ export default function Home() {
         </nav>
 
         {/* Hero */}
-        <section className="flex flex-col items-center text-center mt-10 sm:mt-16 mb-24">
+        <section className="flex flex-col items-center text-center mt-16 mb-24">
           {/* Badge */}
           <div className="flex items-center gap-3 mb-6">
             <div className="flex -space-x-2">
@@ -80,54 +72,45 @@ export default function Home() {
               <span className="h-8 w-8 rounded-full bg-emerald-500 border-2 border-white" />
               <span className="h-8 w-8 rounded-full bg-amber-500 border-2 border-white" />
             </div>
-            <p className="text-xs sm:text-sm text-zinc-500">
-              Trusted by global founders
-            </p>
+            <p className="text-sm text-zinc-500">Trusted by global founders</p>
           </div>
 
           <h1
-            className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]"
+            className="font-medium text-center"
             style={{
-              whiteSpace: "normal",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "84px",
+              fontWeight: 600,
+              lineHeight: "110%",
+              letterSpacing: "-8%",
+              background:
+                "linear-gradient(142.41deg, #000000 30.66%, #0775DB 77.39%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
-            {/* For 393px: Product Designer (one line), Specializing In Branding (one line) */}
-            <span className="block sm:hidden" style={gradientTextStyle}>
-              Product Designer
-            </span>
-            <span className="block sm:hidden" style={gradientTextStyle}>
-              Specializing In Branding
-            </span>
-
-            {/* For 830px and above: Product Designer (one line), Specializing In Branding (one line) */}
-            <span
-              className="hidden sm:block headline-span"
-              style={{
-                ...gradientTextStyle,
-                whiteSpace: "nowrap",
-              }}
-            >
-              Product Designer
-            </span>
-            <span
-              className="hidden sm:block headline-span"
-              style={{
-                ...gradientTextStyle,
-                whiteSpace: "nowrap",
-              }}
-            >
-              Specializing In Branding
-            </span>
+            Product Designer
           </h1>
-          <style>{`
-            @media (max-width: 830px) and (min-width: 801px) {
-              .headline-span {
-                font-size: 4rem !important;
-              }
-            }
-          `}</style>
+          <h2
+            className="font-medium text-center mt-0"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "84px",
+              fontWeight: 600,
+              lineHeight: "110%",
+              letterSpacing: "-8%",
+              background:
+                "linear-gradient(142.41deg, #000000 30.66%, #0775DB 77.39%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Specializing In Branding
+          </h2>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-20">
             <PrimaryButton onClick={handleButtonClick} />
             <SecondaryButton onClick={handleButtonClick} />
           </div>
