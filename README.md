@@ -1,45 +1,17 @@
-# Call Book Button - Next.js Animation Task
+# Next.js 3D Button Landing Page
 
-A production-ready interactive button component showcase built with **Next.js 16**, **Tailwind CSS 4**, **GSAP**, and **Lenis**.
+A pixel-perfect Next.js landing page featuring animated 3D buttons, a responsive hero section, and smooth GSAP transitions. Built from Figma design with clean component structure, modern UI, and production-ready code. Includes optional entrance animation for extra polish.
 
 ## 🚀 Features
 
-### CallBookButton Component
-
-- **Three Interactive States**: Default, Hover, and Clicked
-- **Smooth Animations**: GSAP-powered transitions for all state changes
-- **Icon Morphing**: Dynamic arrow transitions (↗ to →)
-- **Gradient Backgrounds**: Vibrant blue gradients with smooth color shifts
-- **Elevation Effects**: 3D-like lifting on hover, pressing on click
-- **Shadow Effects**: Glow on hover, inner shadow on click
-- **Fully Responsive**: Pixel-perfect on desktop, tablet, and mobile
-- **Accessible**: Keyboard focus states, proper ARIA labels
-
-### Design Details
-
-#### Default State
-
-- White/light grey background
-- Light grey border (1px)
-- Black text and icon (↗)
-- Subtle shadow
-- No elevation
-
-#### Hover State
-
-- Vibrant blue gradient (135deg: #3b82f6 → #2563eb)
-- White text and icon (→)
-- Soft blue glow shadow
-- Lifted appearance (-2px translateY)
-- Smooth color transition on icon
-
-#### Clicked State
-
-- Darker blue gradient (135deg: #1d4ed8 → #1e40af)
-- White text and icon (→)
-- Inner shadow effect for pressed appearance
-- Scale down to 0.98
-- Tight, dark shadow
+- 3D animated buttons with GSAP
+- Responsive hero section for desktop, tablet, and mobile
+- Pixel-perfect Figma implementation
+- Clean, reusable React components
+- Subtle blurred fade-in entrance animation
+- Tailwind CSS 4 for styling
+- Lenis for smooth scrolling
+- Accessible and keyboard-friendly
 
 ## 🛠️ Tech Stack
 
@@ -50,6 +22,18 @@ A production-ready interactive button component showcase built with **Next.js 16
 - **GSAP 3.14** - Animation library
 - **Lenis** - Smooth scrolling library
 - **ESLint** - Code quality
+
+## 🌐 Live Preview
+
+Once pushed to GitHub, deploy instantly to Vercel for a live preview:
+
+1. Go to [vercel.com](https://vercel.com/) and sign in with GitHub.
+2. Import this repository (`nextjs-3d-button-demo`).
+3. Click "Deploy" and get your live link in seconds.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/YeaishTurj/nextjs-3d-button-demo)
+
+---
 
 ## 📋 Getting Started
 
